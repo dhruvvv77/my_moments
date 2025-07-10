@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mymoments
+    env: python
+    buildCommand: ""
+    startCommand: streamlit run streamlit_app.py --server.port=$PORT --server.enableCORS false
+    envVars:
+      - key: DB_HOST
+        value: your-db-host.planetscale.com
+      - key: DB_USER
+        value: your-db-username
+      - key: DB_PASS
+        value: your-db-password
+      - key: DB_NAME
+        value: your-db-name
