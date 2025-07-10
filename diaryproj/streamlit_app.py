@@ -4,12 +4,16 @@ from textblob import TextBlob
 from datetime import datetime
 
 # Database setup
+import os
+
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="dhruv007",
-    database="mymoments_diary"
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASS"),
+    database=os.getenv("DB_NAME"),
+    ssl_disabled=True  # Important for PlanetScale!
 )
+
 cursor = mydb.cursor()
 
 # Page settings
